@@ -2,6 +2,7 @@ package cubex.mahesh.retrofitex_and8am2020
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import cubex.mahesh.retrofitex_and8am2020.data_classes.*
@@ -72,17 +73,27 @@ this,android.R.layout.simple_list_item_1,
         sp_tb.adapter = tb_adapter
         sp_tl.adapter = tl_adapter
 
+Log.i("msg", "tuom_items_asstring :"+ tuom_items_asstring)
+Log.i("msg", "tb_items_asstring :"+ tb_items_asstring)
+Log.i("msg", "tl_items_asstring :"+ tl_items_asstring)
+
         var ware_house_id = stdetails!!.stockTakeHeader.warehouseID
         var bin_id = stdetails!!.stockTakeHeader.binID
 
         for (i in 0..tb_items.size){
+            Log.i("msg", tb_items.get(i).value
+                    +"\n"+bin_id+"\n"+i)
                 if(tb_items.get(i).value.toInt() == bin_id){
                     sp_tb.setSelection(i+1)
+                    break
                 }
         }
         for (i in 0..tl_items.size){
+            Log.i("msg", tl_items.get(i).value
+                    +"\n"+ware_house_id+"\n"+i)
             if(tl_items.get(i).value.toInt() == ware_house_id){
                 sp_tl.setSelection(i+1)
+                break
             }
         }
     }

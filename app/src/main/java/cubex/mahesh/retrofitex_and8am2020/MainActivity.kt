@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         _retofit = Retrofit.
             Builder().
-            baseUrl("http://129.232.170.227/ODIStockmanagementApi/api/").
+            baseUrl("http://129.232.170.227/ODIStockmanagementApik/api/").
             addConverterFactory(GsonConverterFactory.create()).
             build()
         sapi = _retofit?.create(StocksApi::class.java)
